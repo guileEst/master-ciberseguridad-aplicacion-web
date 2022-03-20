@@ -17,4 +17,5 @@ def buscar_Producto_en_wallapop():
     r = requests.get(wallapopUrl)
     objetos_return_api = r.json().get("search_objects")
 #    objetos_return_api = r.json()
-
+lista_productos = []
+    for p in objetos_return_api:
