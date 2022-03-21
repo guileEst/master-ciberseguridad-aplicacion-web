@@ -19,3 +19,10 @@ def buscar_Producto_en_wallapop():
 #    objetos_return_api = r.json()
 lista_productos = []
     for p in objetos_return_api:
+        lista_productos.append(Producto(titulo=p["title"], valor=p["price"], moneda=p["currency"]))
+lista_productos_dict =[t.to_dict() for t in lista_productos]
+lista_productos_serializada =json.dumps(lista_productos_dict)
+    return Response(lista_productos_serializada)
+
+if __name__ == __main__:
+    app.run(host="127.0.0.1", port=5151)
